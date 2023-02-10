@@ -27,6 +27,15 @@ def which_dish_not_ordered(name, list_of_orders):
     return orders.difference(client_orders)
 
 
+def which_days_never_attended(name, list_of_orders):
+    days = set()
+    client_days = set()
+    for order in list_of_orders:
+        days.add(order["day"])
+        if order["person"] == name:
+            client_days.add(order["day"])
+    return days.difference(client_days)
+
 
 def analyze_log(path_to_file):
     raise NotImplementedError
