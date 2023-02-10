@@ -1,5 +1,5 @@
 class TrackOrders:
-    
+
     def __init__(self):
         self.orders = []
 
