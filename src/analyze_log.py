@@ -5,6 +5,7 @@ def favorite_order(name, order, list_of_orders):
             count += 1
     return count
 
+
 def most_popular_order(name, list_of_orders):
     all_orders = {}
     for orders in list_of_orders:
@@ -14,6 +15,18 @@ def most_popular_order(name, list_of_orders):
             else:
                 all_orders[orders["order"]] += 1
     return max(all_orders, key=all_orders.get)
+
+
+def which_dish_not_ordered(name, list_of_orders):
+    orders = set()
+    client_orders = set()
+    for order in list_of_orders:
+        orders.add(order["order"])
+        if order["person"] == name:
+            client_orders.add(order["order"])
+    return orders.difference(client_orders)
+
+
 
 def analyze_log(path_to_file):
     raise NotImplementedError
